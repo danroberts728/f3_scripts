@@ -5,11 +5,11 @@ WHERE av.date BETWEEN DATE_FORMAT(NOW(), '%Y-01-01') AND NOW()
 GROUP BY pax
 ORDER BY COUNT(pax) DESC;
 
-# Top posts and weekly averages all time
-SELECT pax, COUNT(pax) AS posts, COUNT(pax)/CEILING(DAYOFYEAR(SYSDATE())/7) AS weekly
-FROM attendance_view av 
-GROUP BY pax
-ORDER BY COUNT(pax) DESC;
+# Top posts all time
+	SELECT pax, COUNT(pax) AS posts
+	FROM attendance_view av 
+	GROUP BY pax
+	ORDER BY COUNT(pax) DESC;
 
 # Hit ALL AOs this year
 SELECT s.pax, COUNT(s.pax) AS unique_aos
